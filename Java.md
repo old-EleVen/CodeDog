@@ -450,3 +450,25 @@ AQS就是一个并发包的基础组件，用来实现各种锁，各种同步�
 HashSet中存放的元素**不可重复**，无序（有序使用TreeSet） **可以存放null**
 
 底层原理使用的是HashMap，将元素当做Key存放进去（保证唯一）。
+
+## 19. final finally finalize
+
+### 19.1 final
+
+- 修饰成员变量 表示**不可变**，基本对象数值不变，引用对象引用不可变，对象内容可变
+- 修饰方法 **不可重写**
+- 修饰类 **不可继承**
+
+### 19.2 finally
+
+- try执行，finally才会执行
+- try中执行system.exit(0)，finally也不会执行
+- finally代码是在try代码中的return语句**执行之后**，**返回之前**执行的
+- finally代码块中的return语句**覆盖try代码中的return语句**
+- finally中return语句如果是**传值**（8中基本类型，包装类  字符常量），则**不会**因为修改而改变，如果是**传引用**（数组、对象）则**会**因为修改而改变
+- try中return在**异常情况**下不会执行。 执行流程try -> catch -> finally
+- finally中return语句**覆盖rty与catch中的return语句**
+
+### 19.3 finalize
+
+object类中的方法，在垃圾回收时调用该方法，执行回收对象前必要的清理（关闭一些链接），主要回收JNI对象
