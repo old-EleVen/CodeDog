@@ -48,3 +48,5 @@ onTouch方法返回True时OnTouchEvent就不会执行
   - 当前栈中不存在该Activity的实例时，其行为同standard启动模式
 - SingleTask：**栈内复用模式** 如果task栈中存在，则将上面的其他Activity移除，然后复用，否则新建然后放入栈顶
 - SingleInstance：**全局唯一模式 **即只要有任何一个栈存在此Activity实例，就会复用此实例，回调onNewIntent方法。如果此实例不存在，那么就会创建新的Task栈，并放入Activity实例。 （只要Activity存在，就存在与单独的一个栈中）
+
+## 4.
